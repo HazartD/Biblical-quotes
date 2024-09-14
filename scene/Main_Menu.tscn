@@ -1,0 +1,101 @@
+[gd_scene load_steps=4 format=3 uid="uid://gnq7xylr72u5"]
+
+[ext_resource type="Theme" uid="uid://bs7a6hi4dwn3p" path="res://theme.tres" id="1_6j78o"]
+[ext_resource type="Script" path="res://script/main_menu.gd" id="2_l7y6p"]
+[ext_resource type="Texture2D" uid="uid://bxe70q6u724l" path="res://icon.svg" id="3_slngf"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_6j78o")
+script = ExtResource("2_l7y6p")
+
+[node name="albumes" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -287.0
+offset_top = -109.0
+offset_right = 313.0
+offset_bottom = 891.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="+" type="Button" parent="albumes"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "New album"
+icon = ExtResource("3_slngf")
+expand_icon = true
+
+[node name="seleccionar" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -126.0
+offset_right = -1.0
+offset_bottom = 125.0
+grow_horizontal = 0
+text = "poner de icono un el cuadrado con chek"
+icon = ExtResource("3_slngf")
+flat = true
+text_overrun_behavior = 2
+expand_icon = true
+
+[node name="crear album_cita" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -126.0
+offset_top = -122.0
+offset_right = -1.0
+offset_bottom = 3.0
+grow_horizontal = 0
+grow_vertical = 0
+icon = ExtResource("3_slngf")
+flat = true
+expand_icon = true
+
+[node name="configuraciones" type="Button" parent="."]
+layout_mode = 1
+offset_right = 125.0
+offset_bottom = 125.0
+icon = ExtResource("3_slngf")
+flat = true
+expand_icon = true
+
+[node name="borrar" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -128.0
+offset_right = 125.0
+offset_bottom = -3.0
+grow_vertical = 0
+disabled = true
+icon = ExtResource("3_slngf")
+flat = true
+expand_icon = true
+
+[node name="Citas" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="button_down" from="albumes/+" to="." method="_on__button_down"]

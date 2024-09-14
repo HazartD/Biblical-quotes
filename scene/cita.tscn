@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3218wnlovlnn"]
+
+[ext_resource type="PackedScene" uid="uid://6jb7dgi62kjg" path="res://scene/text_edit.tscn" id="1_hxkrr"]
+
+[sub_resource type="GDScript" id="GDScript_8dvgu"]
+script/source = "extends Control
+@onready var book=$HBoxContainer/book
+@onready var cap=$HBoxContainer/cap
+@onready var v_i=$HBoxContainer/verse_i
+@onready var v_f=$HBoxContainer/verse_f
+@onready var cita=$Label
+func update_cita_text()->void:cita.text=book.text+\" \"+cap.text+\":\"+v_i.text+\"-\"+v_f.text
+func _ready():for i in 72:book.add_item(str(i))
+"
+
+[node name="Cita" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_8dvgu")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.7
+theme_override_font_sizes/font_size = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.8
+
+[node name="book" type="OptionButton" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+clip_text = true
+item_count = 2
+allow_reselect = true
+popup/item_0/text = "Gn"
+popup/item_0/id = 0
+popup/item_1/text = "Ex"
+popup/item_1/id = 1
+
+[node name="cap" type="LineEdit" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "CAP"
+virtual_keyboard_type = 2
+
+[node name="verse_i" type="LineEdit" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "IV"
+virtual_keyboard_type = 2
+
+[node name="verse_f" type="LineEdit" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "FV"
+virtual_keyboard_type = 2
+
+[node name="TextEdit" parent="." instance=ExtResource("1_hxkrr")]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.5
+placeholder_text = "EN"
+
+[connection signal="item_selected" from="HBoxContainer/book" to="." method="update_cita_text" unbinds=1]
+[connection signal="text_changed" from="HBoxContainer/cap" to="." method="update_cita_text" unbinds=1]
+[connection signal="text_changed" from="HBoxContainer/verse_i" to="." method="update_cita_text" unbinds=1]
+[connection signal="text_changed" from="HBoxContainer/verse_f" to="." method="update_cita_text" unbinds=1]

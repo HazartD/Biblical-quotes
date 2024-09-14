@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://6jb7dgi62kjg"]
+
+[sub_resource type="GDScript" id="GDScript_gudgx"]
+script/source = "extends TextEdit
+@export_enum(\"ALBUM_ASTRAC:5000\",\"ENTRY_NOTE:2500\") var max_limit:int=2500
+var current_text
+
+func _on_text_changed():
+	if text.length()>max_limit:
+		text=text.substr(0,max_limit)
+"
+
+[node name="TextEdit" type="TextEdit"]
+offset_right = 8.0
+offset_bottom = 8.0
+wrap_mode = 1
+autowrap_mode = 1
+script = SubResource("GDScript_gudgx")
+
+[connection signal="text_changed" from="." to="." method="_on_text_changed"]

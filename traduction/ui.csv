@@ -1,0 +1,8 @@
+key,es,en
+NFN,Nombre de Carpeta (max. 100 chr),Folder Name (max. 100 chr)
+NFA,Descripcion de Carpteta (max. 5000 chr),Folder Astrac (max. 5000 chr)
+CAP,Capitulo,Chapter
+IV,Inicio,Begin
+FV,Final,End
+CT,Crear,Create
+EN,Describe porque te parecio importante anotar esta cita biblica (max. 2500 chr),Describe why you thought it was important to write down this biblical quote (max. 2500 chr).
