@@ -30,10 +30,10 @@ func open_album(_name:String)->void:
 			var new=cita.instantiate()
 			citas.add_child(new)
 			new.book.text=con.get_value(i,"book")
-			new.cap.text=str(con.get_value(i,"chapter"))
-			new.v_i.text=str(con.get_value(i,"initialverse"))
-			new.v_f.text=str(con.get_value(i,"finalverse"))
-			new.note.text=str(con.get_value(i,"note"))
+			new.cap.text=con.get_value(i,"chapter")
+			new.v_i.text=con.get_value(i,"initialverse")
+			new.v_f.text=con.get_value(i,"finalverse")
+			new.note.text=con.get_value(i,"note")
 			new.update_cita_text()
 		citas.show()
 		album_list.hide()
@@ -57,17 +57,17 @@ func save_con()->void:
 		if con.get_value(str(i),"book")!=data.book.text:
 			con.set_value(str(i),"book",data.book.text)
 			changed=true
-		if str(con.get_value(str(i),"chapter"))!=data.cap.text:
-			con.set_value(str(i),"chapter",data.cap.text)
+		if con.get_value(str(i),"chapter")!=data.cap.text:
+			con.set_value(str(i),"chapter",str(data.cap.text))
 			changed=true
-		if str(con.get_value(str(i),"initialverse"))!=data.v_i.text:
-			con.set_value(str(i),"initialverse",data.v_i.text)
+		if con.get_value(str(i),"initialverse")!=data.v_i.text:
+			con.set_value(str(i),"initialverse",str(data.v_i.text))
 			changed=true
-		if str(con.get_value(str(i),"finalverse"))!=data.v_f.text:
-			con.set_value(str(i),"finalverse",data.v_f.text)
+		if con.get_value(str(i),"finalverse")!=data.v_f.text:
+			con.set_value(str(i),"finalverse",str(data.v_f.text))
 			changed=true
-		if str(con.get_value(str(i),"note"))!=data.note.text:
-			con.set_value(str(i),"note",data.note.text)
+		if con.get_value(str(i),"note")!=data.note.text:
+			con.set_value(str(i),"note",str(data.note.text))
 			changed=true
 	if changed:
 		con.save(actual)
