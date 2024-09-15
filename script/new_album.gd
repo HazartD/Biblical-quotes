@@ -1,5 +1,5 @@
 extends Panel
-func _on_button_button_down():
+func _on_button_button_down()->void:
 	var con=ConfigFile.new()
 	con.set_value("DATA","NAME",$name.text)
 	con.set_value("DATA","ASTRAC",$descripcion.text)

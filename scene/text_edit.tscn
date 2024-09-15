@@ -5,14 +5,17 @@ script/source = "extends TextEdit
 @export_enum(\"ALBUM_ASTRAC:5000\",\"ENTRY_NOTE:2500\") var max_limit:int=2500
 var current_text
 
-func _on_text_changed():
+func _on_text_changed()->void:
 	if text.length()>max_limit:
 		text=text.substr(0,max_limit)
 "
 
 [node name="TextEdit" type="TextEdit"]
-offset_right = 8.0
-offset_bottom = 8.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 wrap_mode = 1
 autowrap_mode = 1
 script = SubResource("GDScript_gudgx")

@@ -17,14 +17,13 @@ config/custom_user_dir_name="HazartD/Biblical"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
-[autoload]
-
-Global="*res://script/global.gd"
-
 [display]
 
 window/size/viewport_width=500
-window/size/viewport_height=500
+window/size/viewport_height=705
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+window/handheld/orientation=5
 
 [internationalization]
 
@@ -34,3 +33,4 @@ locale/translations=PackedStringArray("res://traduction/Books.en.translation", "
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
